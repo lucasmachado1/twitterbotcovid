@@ -3,11 +3,13 @@ const moment = require('moment');
 const puppeteer = require('puppeteer');
 const app = express();
 
+
+
+
 console.log('Iniciando');
 
 async function robo() {
-
-  const browser = await puppeteer.launch({ headless: true});
+  const browser = await puppeteer.launch({args: ['--no-sandbox']});
   const page = await browser.newPage();
   const urlweb = 'https://www.google.com/search?client=firefox-b-d&q=dados+covid+19';
   await page.goto(urlweb);
